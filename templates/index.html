@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" >
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>  <!-- d4a3af -->
+
+    <center>
+    <div class="login">
+        <br><br><br><br><br>
+        <h1> Estate House Sales </h1>
+         Affordable housing for you! <br><br>
+             Enter the following values to predict the price of houses...</p>
+        <br>
+        <!-- Main input for receiving the query to our ML --> 
+
+        <form action={{ url_for('predict') }} method="POST"  >
+            <b> <!-- set it to fall between 0 to 10, roll slide selector string. see if it can be set to a number range locked --> 
+                Overall Quality <input type='number', name='OverallQual', min = "1", max = "10", placeholder='Overall Quality' required="required"> &nbsp;
+                Kitchen Quality <input type='number', name='KitchenQual', min = "1", max = "5", placeholder='Kitchen Quality' required="required"> &nbsp;
+                Ground Living Area <input type='number', name='GrLivArea', min = "334", max = "5642" placeholder='Living Area' required="required"> &nbsp;
+                Garage Cars <input type='number', name='GarageCars', min = "0", max = "4", placeholder='Garage Cars' required="required"> &nbsp; <!-- Set 0 to 4 -->
+                Exterior Quality <input type='number', name='ExteriorQual', min = "1", max = "5", placeholder='Exterior Quality' required="required"> <br>
+            </b>
+
+            <button type="submit" class="btn">Predict</button>  <br><br>
+          {{ prediction_text }}
+        </form>
+        
+        <br>
+        <br>
+        
+        </center>
+        
+    </div>
+</body>
+</html>
+
+<!--
+ExterQual : <input type='text', name='g', placeholder='Slide roll object'>
+GarageFinish : <input type='text', name='i', placeholder='Slide roll object'><br><br>
+1stFlrSF : <input type='text', name='j', placeholder='enter 10'><br><br>      
+YearRemodAdd : <input type='text', name='h', placeholder='enter 8'><br><br>    
+
+
+<input type = "button" onclick = "alert('Welcome to Vivax Solutions!')" value = "Click to be Greeted!" >
+<input type = "number" name = "age" min = "5" max = "95" >
+-->
